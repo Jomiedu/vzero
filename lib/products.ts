@@ -166,3 +166,8 @@ export async function getFeaturedProducts(): Promise<Product[]> {
   const products = await fetchProducts()
   return products.filter((product) => product.featured)
 }
+
+export async function getProductById(id: string): Promise<Product | null> {
+  const products = await fetchProducts()
+  return products.find((product) => product.id === id) || null
+}
